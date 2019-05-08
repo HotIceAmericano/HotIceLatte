@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+      }
+
+      .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 1%;
+        width: 25%;
+      }
+
+      .tablink:hover {
+        background-color: #777;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        color: white;
+        display: none;
+        padding: 1%;
+        text-align: center;
+        font-size: 4.5vmin;
+      }
+
+      .tabs button {
+        font-size: 2.8vmin;
+      }
+      #Home {
+        background-color: #d63530;
+      }
+      #English {
+        background-color: green;
+      }
+      #Math {
+        background-color: #3033d6;
+      }
+      #Programming {
+        background-color: orange;
+      }
+
+      .vertical-menu {
+        width: 20%;
+        position: fixed;
+        background-color: #111;
+        margin-left: 0.5%;
+        margin-top: 5%;
+      }
+
+      .vertical-menu a,
+      .dropdown-btn {
+        background-color: #111;
+        color: #818181;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+        padding-right: 20%;
+
+        text-align: center;
+        font-size: 2.5vmin;
+        width: 100%;
+
+        text-decoration: none;
+        color: #818181;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .vertical-menu a:hover,
+      .dropdown-btn:hover {
+        color: #f1f1f1;
+      }
+      .active {
+        background-color: #999999;
+        color: white;
+      }
+      .fa-caret-down {
+        float: right;
+        padding-right: 8px;
+      }
+      .dropdown-container {
+        display: none;
+        background-color: #262626;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Home" class="tabcontent">
+      <h1>Home</h1>
+    </div>
+
+    <div id="English" class="tabcontent">
+      <h1>English</h1>
+    </div>
+
+    <div id="Math" class="tabcontent">
+      <h1>Math</h1>
+    </div>
+
+    <div id="Programming" class="tabcontent">
+      <h1>Programming</h1>
+    </div>
+    <div class="tabs">
+      <button
+        class="tablink"
+        onclick="openCity('Home', this, '#d63530')"
+        id="defaultOpen"
+      >
+        Home
+      </button>
+      <button class="tablink" onclick="openCity('English', this, 'green')">
+        English
+      </button>
+      <button class="tablink" onclick="openCity('Math', this, '#3033d6')">
+        Math
+      </button>
+      <button class="tablink" onclick="openCity('Programming', this, 'orange')">
+        Programming
+      </button>
+    </div>
+
+    <div class="vertical-menu">
+      <button class="dropdown-btn">
+        v1
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <a href="#">Link 1fdsfdsfdsfdsfds</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+      <button class="dropdown-btn">
+        v2
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+      <button class="dropdown-btn">
+        v3
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+      <button class="dropdown-btn">
+        v4
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+
+    <script>
+      function openCity(cityName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(cityName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+
+      document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+      // Get the element with id="defaultOpen" and click on it
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
